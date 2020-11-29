@@ -8,4 +8,13 @@ describe Gate do
       expect(umeda_gate).to be_an_instance_of(Gate)
     end
   end
+
+  describe '#enter' do
+    it "enter the ticket to gate and stamp_at is enter station's name" do
+      umeda_gate = Gate.new(:umeda)
+      ticket = Ticket.new(150)
+      umeda_gate.enter(ticket)
+      expect(ticket.stamp_at).to eq :umeda
+    end
+  end
 end
