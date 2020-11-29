@@ -14,7 +14,17 @@ describe Gate do
       umeda_gate = Gate.new(:umeda)
       ticket = Ticket.new(150)
       umeda_gate.enter(ticket)
-      expect(ticket.stamp_at).to eq :umeda
+      expect(ticket.stamped_at).to eq :umeda
+    end
+  end
+
+  describe '#exit' do
+    it "return false exit when fare not enough" do
+      umeda_gate = Gate.new(:umeda)
+      mikuni_gate = Gate.new(:mikuni)
+      ticket = Ticket.new(150)
+      umeda_gate.enter(ticket)
+      expect(mikuni_gate.exit(ticket)).to be false
     end
   end
 end
