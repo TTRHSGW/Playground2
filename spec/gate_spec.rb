@@ -3,6 +3,7 @@ require_relative "../lib/ticket"
 
 RSpec.describe Gate do
   let(:umeda_gate) { Gate.new(:umeda) }
+  let(:juso_gate) { Gate.new(:juso) }
   let(:mikuni_gate) { Gate.new(:mikuni) }
   let(:ticket) { Ticket.new(150) }
 
@@ -20,9 +21,14 @@ RSpec.describe Gate do
   end
 
   describe '#exit' do
-    it "return false exit when fare not enough" do
+    it "return false exit when fare is not enough" do
       umeda_gate.enter(ticket)
       expect(mikuni_gate.exit(ticket)).to be false
+    end
+
+    it "return true exit when fare is enough" do
+      umeda_gate.enter(ticket)
+      expect(juso_gate.exit(ticket)).to be true
     end
   end
 end

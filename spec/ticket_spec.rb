@@ -1,6 +1,6 @@
 require_relative '../lib/ticket'
 
-describe Ticket do
+RSpec.describe Ticket do
   describe 'Ticket new' do
     it 'can new Ticket instance' do
       ticket = Ticket.new(150)
