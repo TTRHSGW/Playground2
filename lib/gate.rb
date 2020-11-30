@@ -12,14 +12,22 @@ class Gate
   end
 
   def exit(ticket)
-    fare = calc_fare(ticket)
-    fare <= ticket.fare
+    if calc_fare(ticket)
+      fare = calc_fare(ticket)
+      fare <= ticket.fare
+    else
+      false
+    end
   end
 
   def calc_fare(ticket)
     from = STATIONS.index(ticket.stamped_at)
     to = STATIONS.index(@station)
-    distance = to - from
-    FARE[distance - 1]
+    if from.nil?
+      false
+    else
+      distance = to - from
+      FARE[distance - 1]
+    end
   end
 end
