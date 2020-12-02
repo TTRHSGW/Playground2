@@ -1,3 +1,6 @@
+require './lib/deep_freezable_module.rb'
+
 class Team
-  COUNTRIES = ['Japan', 'US', 'India'].freeze
+  extend DeepFreezable
+  COUNTRIES = deep_freeze(['Japan', 'US', 'India'])
 end
