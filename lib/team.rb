@@ -1,4 +1,4 @@
-require './lib/deep_freezable_module.rb'
+require_relative './deep_freezable_module.rb'
 
 class Team
   extend DeepFreezable
