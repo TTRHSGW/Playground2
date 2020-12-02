@@ -9,5 +9,11 @@ RSpec.describe DeepFreezable do
       expect(Team::COUNTRIES.frozen?).to be true
       expect(Team::COUNTRIES.all? { |country| country.frozen? }).to be true
     end
+
+    it 'hash equal' do
+      expect(Bank::CURRENCIES).to eq ({ 'Japan' => 'yen', 'US' => 'dollar', 'India' => 'rupee' })
+      expect(Bank::CURRENCIES.frozen?).to be true
+      expect(Bank::CURRENCIES.all? { |key, value| key.frozen? && value.frozen? }).to be true
+    end
   end
 end
