@@ -1,5 +1,8 @@
 module Loggable
-  def log(text)
-    puts "[LOG] #{text}"
-  end
+
+  module_function
+    def log(text)
+      puts "[LOG] #{text}"
+    end
+
 end
