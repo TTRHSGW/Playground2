@@ -1,8 +1,9 @@
 module Loggable
+  PREFIX = '[LOG]'.freeze
 
   module_function
     def log(text)
-      puts "[LOG] #{text}"
+      puts "#{PREFIX} #{text}"
     end
 
 end
