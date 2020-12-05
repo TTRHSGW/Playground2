@@ -1,7 +1,24 @@
 require_relative "../lib/loggable_module.rb"
 
+module StringShuffle
+  refine String do
+    def shuffle
+      chars.shuffle.join
+    end
+  end
+end
+
 class User
   include Loggable
+  using StringShuffle
+
+  def initialize(name)
+    @name = name
+  end
+
+  def shuffled_name
+    @name.shuffle
+  end
 
   def name
     log('name is called')
@@ -9,5 +26,5 @@ class User
   end
 end
 
-user = User.new
-user.name
+user = User.new('Alice')
+user.shuffled_name
