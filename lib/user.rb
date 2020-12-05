@@ -20,6 +20,10 @@ class User
     @name.shuffle
   end
 
+  def call_me
+    "Taro"
+  end
+
   def name
     log('name is called')
     'Alice'
