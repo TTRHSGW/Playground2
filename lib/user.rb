@@ -21,6 +21,7 @@ class User
   end
 
   def call_me
+    puts "change from working copy"
     "Taro"
   end
 
