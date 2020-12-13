@@ -8,7 +8,7 @@ class Gate
   end
 
   def enter(ticket)
-    ticket.stamped_at = @station
+    ticket.stamp(@station)
   end
 
   def exit(ticket)
