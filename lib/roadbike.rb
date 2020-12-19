@@ -1,13 +1,9 @@
-class RoadBike < Bicycles
-  attr_reader :style, :size, :tape_color,
-              :front_shock, :rear_shock
+class RoadBike < Bicycle
+  attr_reader :tape_color
 
   def initialize(args)
-    @style       = args[:style]
-    @size        = args[:size]
     @tape_color  = args[:size]
-    @front_shock = args[:front_shock]
-    @rear_shock  = args[:rear_shock]
+    super(args)
   end
 
   def spares
