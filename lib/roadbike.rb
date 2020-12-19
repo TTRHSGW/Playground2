@@ -6,15 +6,13 @@ class RoadBike < Bicycle
     super(args)
   end
 
+  def default_tire_size
+    '23'
+  end
+
   def spares
-    if style == :road
-      { chain: '10-speed',
-        tire_size: '23',
-        tape_color: tape_color }
-    else
-      { chain: '10-speed',
-        tire_size: '2.1',
-        rear_shock: rear_shock }
-    end
+    { chain: '10-speed',
+      tire_size: '23',
+      tape_color: tape_color }
   end
 end
