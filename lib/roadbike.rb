@@ -11,8 +11,6 @@ class RoadBike < Bicycle
   end
 
   def spares
-    { chain: '10-speed',
-      tire_size: '23',
-      tape_color: tape_color }
+    super.merge({ tape_color: tape_color })
   end
 end
