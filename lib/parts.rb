@@ -4,6 +4,7 @@ class Parts
   def initialize(args={})
     @tire_size = args[:tire_size] || default_tire_size
     @chain     = args[:chain]     || default_chain
+    post_initialize(args)
   end
 
   def spares
