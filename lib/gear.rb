@@ -1,9 +1,10 @@
 
 class Gear
-  attr_reader :chainring, :cog
+  attr_reader :chainring, :cog, :wheel, :observer
   def initialize(chainring, cog)
     @chainring = chainring
     @cog       = cog
+    @observer  = observer
   end
 
   def ratio
@@ -13,6 +14,21 @@ class Gear
   def gear_inches(diameter)
     ratio * diameter
   end
+  
+  def set_cog(cog)
+    @cog = cog
+    changed
+  end
+  
+  def set_chainring(chainring)
+    @chainring = chainring
+    changed
+  end
+  
+  def change
+    observer.changed(chainring, cog)
+  end
+  
 end
 
 class Wheel
